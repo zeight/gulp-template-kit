@@ -13,7 +13,7 @@ var rename = require('gulp-rename');
 var gzip = require('gulp-gzip');
 var livereload = require('gulp-livereload');
 var open = require('gulp-open');
-
+var uglify = require('gulp-uglify');
 
 var gzip_options = {
     threshold: '1kb',
@@ -41,6 +41,7 @@ gulp.task('launch', function(){
 gulp.task('scripts', function() {
   return gulp.src('./scripts/*.js')
     .pipe(concat('main.js'))
+    .pipe(uglify())
     .pipe(gulp.dest('./assets/js/'))
     .pipe(livereload())
     //.pipe(connect.reload())
@@ -68,6 +69,7 @@ gulp.task('images', function() {
   return gulp.src('images/**/*')
     .pipe(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true }))
     .pipe(gulp.dest('assets/img'))
+    .pipe(livereload())
     .pipe(notify({ message: 'Images task complete' }));
 });
 
@@ -82,7 +84,8 @@ gulp.task('watch', function() {
     livereload.listen();
     gulp.watch('scss/*.scss', ['sass']);
     gulp.watch('scripts/*.js', ['scripts']);
-    gulp.watch('index.html').on('change', livereload.changed);
+    gulp.watch('images/*', ['images']);
+    gulp.watch('*.html').on('change', livereload.changed);
     /* Trigger a live reload on any Django template changes */
     //gulp.watch('**/templates/*').on('change', livereload.changed);
 

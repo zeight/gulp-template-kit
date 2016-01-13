@@ -1,7 +1,12 @@
 {
-  "name": "zeights",
-  "version": "0.0.0",
+  "name": "gulp-template-kit",
+  "version": "1.0.0",
   "description": "Basic site development with gulp",
+  "keywords": [
+    "gulp",
+    "scss",
+    "js"
+  ],
   "main": "gulpfile.js",
   "dependencies": {
     "del": "^1.2.0",
@@ -20,17 +25,20 @@
     "gulp-ruby-sass": "^1.0.5",
     "gulp-sass": "^2.0.1",
     "gulp-uglify": "^1.2.0",
-    "gulp-watch": "^4.2.4"
-  },
-  "devDependencies": {
-    "gulp": "^3.9.0",
+    "gulp-watch": "^4.2.4",
     "gulp-chmod": "^1.2.0",
     "gulp-connect": "^2.2.0",
     "gulp-sass": "^2.0.3"
   },
+  "devDependencies": {
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "bugs": {
+    "url": "https://github.com/zeight/gulp-template-kit/issues"
+  },
+  "homepage": "https://github.com/zeight/gulp-template-kit",
   "author": "Andrea Zotti",
   "license": "ISC"
 }
